@@ -81,7 +81,7 @@ export default {
 }
 
 .dialog-header {
-    background-color: #0078d4;
+    background-color: #6d9cbf;
     color: #fff;
     display: flex;
     justify-content: space-between;

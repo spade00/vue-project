@@ -9,30 +9,35 @@
             <Button @click="sign_out">退出登录</Button>
         </div>
         <div v-if="Switch===1" class="sidebar-content-1">
-            <h3 style="color: red">我的订单</h3>
-            <div class="order-detail" v-for="item in paginatedData">
-                <div>
-                    <table>
-                        <thead>
-                        <tr>
-                            <td>支付订单</td>
-                            <td>创建时间</td>
-                            <td>影票数量</td>
-                            <td>总价</td>
-                        </tr>
-                        </thead>
-                        <tbody>
+            <div>
+                <statistical></statistical>
+            </div>
+            <div class="order">
+                <h3 style="color: red">我的订单</h3>
+                <div class="order-detail" v-for="item in paginatedData">
+                    <div>
+                        <table>
+                            <thead>
                             <tr>
-                                <td>
-                                    {{ item.PaymentId }}
-                                </td>
-                                <td>{{item.PaymentTime}}</td>
-                                <td>{{item.Number}}</td>
-                                <td style="color: red"><h2>￥{{item.Amount}}</h2></td>
-                                <td><Button @click="order_Details(item.PaymentId)">详情</Button></td>
+                                <td>支付订单</td>
+                                <td>创建时间</td>
+                                <td>影票数量</td>
+                                <td>总价</td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{ item.PaymentId }}
+                                    </td>
+                                    <td>{{item.PaymentTime}}</td>
+                                    <td>{{item.Number}}</td>
+                                    <td style="color: red"><h2>￥{{item.Amount}}</h2></td>
+                                    <td><Button @click="order_Details(item.PaymentId)">详情</Button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,10 +66,11 @@ import router from "@/router";
 import Movie_store from "@/Store";
 import request from "@/utils/request";
 import Diaglog from "@/components/reception/router/my/component/diaglog.vue";
+import Statistical from "@/components/reception/router/my/component/statistical.vue";
 //pinia
 
 export default {
-    components: {Diaglog},
+    components: {Statistical, Diaglog},
     setup() {
         const store = Movie_store()
 
@@ -168,7 +174,11 @@ export default {
 </script>
 
 <style scoped>
-
+.order{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
 .order-detail{
     border: #dddddd 2px solid;
     margin-bottom: 20px;
@@ -194,7 +204,7 @@ export default {
 }
 .sidebar-content-1{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 80%;
     margin-left: 20px;
 }
