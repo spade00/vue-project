@@ -1,9 +1,9 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
-import Panel from "@/components/reception/main/Panel.vue";
-import Login from "@/components/reception/router/Login.vue";
-import Details from "@/components/reception/router/Details.vue";
-import Pay from "@/components/reception/router/Pay.vue";
-import Pay_Details from "@/components/reception/router/Pay_Details.vue"
+import Panel from "@/components/reception/main/panel/Panel.vue";
+import Login from "@/components/reception/router/login/Login.vue";
+import Details from "@/components/reception/router/details/Details.vue";
+import Pay from "@/components/reception/router/pay/Pay.vue";
+import Pay_Details from "@/components/reception/router/pay_details/Pay_Details.vue"
 import My from "@/components/reception/router/my/My.vue";
 import Admin from "@/components/backstage/Admin.vue";
 import Arrange_film from "@/components/backstage/component/Arrange_film/Arrange_film.vue";

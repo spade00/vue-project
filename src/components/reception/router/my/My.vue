@@ -60,7 +60,7 @@ import {computed, onMounted, reactive, ref} from 'vue';
 import router from "@/router";
 import Movie_store from "@/Store";
 import request from "@/utils/request";
-import Diaglog from "@/components/reception/router/my/diaglog.vue";
+import Diaglog from "@/components/reception/router/my/component/diaglog.vue";
 //pinia
 
 export default {
@@ -172,7 +172,8 @@ export default {
 .order-detail{
     border: #dddddd 2px solid;
     margin-bottom: 20px;
-    border-radius: 15px;
+    border-radius: 45px;
+    width: 50%;
 }
 .order-detail:hover{
     transform: translateX(10px);
@@ -218,8 +219,8 @@ export default {
     height: 350px;
 }
 .sidebar-box{
-    width: 80%;
-    height: 800px;
+    width: 100%;
+    height: 900px;
     display: flex;
 }
 .sidebar {

@@ -4,7 +4,7 @@
     </div>
     <div class="bg">
         <div>
-            <img src="src/assets/Logo.jpg" alt="Logo">
+            <img src="../../../../assets/Logo.jpg" alt="Logo">
         </div>
         <div class="login-container">
             <h1>登录</h1>

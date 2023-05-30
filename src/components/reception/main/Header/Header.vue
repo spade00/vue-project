@@ -21,17 +21,23 @@
     <div class="content" v-else-if="store.activeIndex===1 && $route.path==='/'">
         <Classification></Classification>
     </div>
+    <div class="content" v-else-if="store.activeIndex===2 && $route.path==='/'">
+        <About></About>
+    </div>
 </template>
 
 <script>
 import {reactive, onMounted, onUpdated} from 'vue';
 import router from "@/router";
-import Panel from "@/components/reception/main/Panel.vue";
-import Classification from "@/components/reception/main/Classification.vue";
+import Panel from "@/components/reception/main/panel/Panel.vue";
+import Classification from "@/components/reception/main/classification/Classification.vue";
 import request from "@/utils/request";
-import Movie_store from "@/Store";//pinia
+import Movie_store from "@/Store";
+import {useRoute} from "vue-router";
+import About from "@/components/reception/main/about_me/About.vue";
+//pinia
 export default {
-    components: {Classification, Panel},
+    components: {About, Classification, Panel},
     setup() {
 
         const store = Movie_store()

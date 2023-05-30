@@ -17,7 +17,7 @@
         <div>
             <div class="tag-data-list">
                 <div v-for="movie in tag_data.movies" :key="movie.id" class="tag-data-movie-card">
-                    <img src="../../../assets/movie/fb73869a3390fa281e395ba5f89fe7142e4ab.jpg" alt="海报">
+                    <img src="../../../../assets/movie/fb73869a3390fa281e395ba5f89fe7142e4ab.jpg" alt="海报">
                     <h3>{{ movie.title }}</h3>
                     <p>{{ movie.description }}</p>
                 </div>
@@ -28,7 +28,7 @@
 
 <script setup>
 import {reactive, ref} from "vue";
-import Header from "@/components/reception/main/Header.vue";
+import Header from "@/components/reception/main/Header/Header.vue";
 const activeIndex = ref([0,1])
 const setActive = (index,index1)=>{
     activeIndex.value[0]=index
