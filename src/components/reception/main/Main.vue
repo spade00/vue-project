@@ -1,6 +1,8 @@
 <template>
-    <Header></Header>
-    <router-view></router-view>
+    <div class="main">
+        <Header></Header>
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -10,3 +12,10 @@ export default {
     components: {Header},
 }
 </script>
+<style scoped>
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+</style>
