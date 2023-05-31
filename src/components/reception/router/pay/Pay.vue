@@ -1,6 +1,6 @@
 <template>
-    <div><Button @click="$router.go(-1)">返回</Button></div>
     <div class="movie-theater-details-bg">
+        <div class="web_back"><Button @click="$router.go(-1)"><Icon type="ios-arrow-back" /></Button></div>
         <div class="movie-theater-details">
             <div class="movie-theater-poster">
                 <img :src="movie_theater.poster" alt="影院" />
@@ -64,7 +64,9 @@ import router from "@/router";
 import {useRoute} from "vue-router";
 import request from "@/utils/request";
 import Movie_store from "@/Store"
+import {Button, Icon} from "view-ui-plus";
 export default {
+    components: {Button, Icon},
     setup() {
         const store = Movie_store()
 
@@ -109,6 +111,11 @@ export default {
 </script>
 
 <style>
+.web_back{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
 .movie-session-title{
     margin-top: 50px;
 }

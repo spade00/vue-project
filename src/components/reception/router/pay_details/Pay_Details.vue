@@ -1,5 +1,5 @@
 <template>
-    <div><Button @click="$router.go(-1)">返回</Button></div>
+    <div class="web_back"><Button type="primary" ghost @click="$router.go(-1)"><Icon type="ios-arrow-back" /></Button></div>
     <div class="Order-bg">
         <div class="seats-container">
             <div class="seat_demo">
@@ -66,8 +66,10 @@ import {onBeforeMount, onMounted, reactive} from 'vue';
 import {useRoute} from "vue-router";
 import request from "@/utils/request";
 import Movie_store from "@/Store";
+import {Button, Icon} from "view-ui-plus";
 
 export default {
+    components: {Icon, Button},
     setup() {
 
         const store = Movie_store()
@@ -181,7 +183,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.web_back{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
 .seat_demo{
     display: flex;
     margin-bottom: 50px;

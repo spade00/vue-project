@@ -1,6 +1,6 @@
 <template>
-    <div><Button @click="$router.go(-1)">返回</Button></div>
     <div class="movie-details-bg">
+        <div class="web_back"><Button @click="$router.go(-1)"><Icon type="ios-arrow-back" /></Button></div>
         <div class="movie-details">
             <div class="movie-poster">
                 <img :src="movie.details.Poster" alt="影片海报" />
@@ -20,11 +20,14 @@
                 </ul>
                 <div class="buy-tickets">
                     <div>
-                        <Button>想看</Button>
-                        <Button>评分</Button>
+                        想看
+                        <Rate v-model="WantToSee" icon="ios-heart" :count="1" clearable></Rate>
+                        评分
+                        <Rate v-model="Score" clearable allow-half></Rate>
                     </div>
                     <div>
                         <Button @click="pay(movie)">立即购票</Button>
+                        <Button>写影评</Button>
                     </div>
                 </div>
 
@@ -38,22 +41,22 @@
 </template>
 
 <script>
-import {onMounted, reactive} from 'vue';
+import {onMounted, reactive, ref} from 'vue';
 import router from "@/router";
 import {useRoute} from "vue-router";
 import Request from "@/utils/request";
 import Movie_store from "@/Store";
-import {Button} from "view-ui-plus";
+import {Button, Icon, Rate} from "view-ui-plus";
 export default {
-    components: {Button},
+    components: {Icon, Rate, Button},
     setup() {
-
-        const store = Movie_store()
-
+        const route = useRoute()//接收参数
+        const store = Movie_store()//（全局变量）
+        const Score = ref(0)//评分
+        const WantToSee = ref(0)//想看
         let movie = reactive({
             details:{}
         });
-        const route = useRoute()//接收参数
         onMounted(()=>{
             Request.get("/Item/detailsData",{
                 id: route.query.movie_id
@@ -79,13 +82,20 @@ export default {
         return {
             movie,
             pay,
-            route
+            route,
+            Score,
+            WantToSee,
         };
     }
 };
 </script>
 
 <style scoped>
+.web_back{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
 .movie-details-bg{
     padding-top: 50px;
     display: flex;
