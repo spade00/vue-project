@@ -1,23 +1,30 @@
 <template>
     <div class="my-bg">
-        <div class="head">
+        <div class="my-head">
             <div class="my-info">
                 <div class="headPortrait"><h3>头像</h3></div>
                 <div>
-                    <div><h2 style="color: white">用户名</h2></div>
+                    <div><h3 style="color: black">用户名</h3></div>
                     <input placeholder="个性签名">
                 </div>
             </div>
+        </div>
+        <div class="my-content">
+            <Tabs>
+                <TabPane label="订单" icon="logo-apple">标签一的内容</TabPane>
+                <TabPane label="影票" icon="logo-windows">标签二的内容</TabPane>
+                <TabPane label="安全" icon="logo-tux">标签三的内容</TabPane>
+            </Tabs>
         </div>
     </div>
 </template>
 
 <script>
 
-import {Avatar, Space} from "view-ui-plus";
+import {Avatar, Space, TabPane, Tabs} from "view-ui-plus";
 
 export default {
-    components: {Avatar, Space},
+    components: {TabPane, Tabs, Avatar, Space},
     setup() {
         return {
         };
@@ -30,9 +37,8 @@ export default {
     width: 80%;
     height: 900px;
 }
-.head{
-    background-image: url("src/assets/bg.jpg");
-    height: 300px;
+.my-head{
+    height: 200px;
     display: flex;
     flex-direction: column-reverse;
 }
@@ -46,13 +52,14 @@ export default {
     justify-content: flex-start;
 }
 .headPortrait{
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: coral;
+    margin: 10px;
  }
  .headPortrait h3{
      color: white;

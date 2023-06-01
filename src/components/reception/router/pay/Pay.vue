@@ -134,7 +134,7 @@ export default {
 }
 
 .movie-theater-poster {
-    width: 700px;
+    width: 650px;
     height: auto;
     margin-right: 40px;
     overflow: hidden;
@@ -190,7 +190,6 @@ export default {
     display: flex;
     flex-direction: column;
     width: 80%;
-    margin-top: 50px;
 }
 .pay-tick-box{
     display: flex;
