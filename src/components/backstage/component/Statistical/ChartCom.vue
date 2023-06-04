@@ -1,22 +1,30 @@
 <template>
     <div>
         <TagSelect v-model="value">
-            <TagSelectOption name="tag1" color="magenta">选项一</TagSelectOption>
-            <TagSelectOption name="tag2" color="red">选项二</TagSelectOption>
-            <TagSelectOption name="tag3" color="green">选项三</TagSelectOption>
-            <TagSelectOption name="tag4" color="blue">选项四</TagSelectOption>
-            <TagSelectOption name="tag5" color="purple">选项五</TagSelectOption>
-            <TagSelectOption name="tag6" color="orange">选项六</TagSelectOption>
+            <TagSelectOption name="tag1" color="magenta">今日票房前5</TagSelectOption>
+            <TagSelectOption name="tag2" color="red">今日票房前10</TagSelectOption>
+            <TagSelectOption name="tag3" color="green">今日票房前20</TagSelectOption>
         </TagSelect>
     </div>
-    <div>
-        <v-chart className="chart" :option="option" style="height: 400px"/>
+    <br>
+    <div class="pf">
+        <div class="summary">
+            <v-chart className="chart" :option="option" style="height: 400px;width: 100%"/>
+        </div>
+        <div class="scroll">
+            <Scroll :on-reach-top="handleReachTop" height="800">
+                <Card dis-hover v-for="(item, index) in list" :key="index" style="margin: 32px 0">
+                    <img src="https://dev-file.iviewui.com/stJXDnKhL5qEBD0dHSDDTKbdnptK6mV5/large">
+                    <h3>A high quality UI Toolkit based on Vue.js</h3>
+                </Card>
+            </Scroll>
+        </div>
     </div>
 </template>
 
 <script setup>
 import {ref} from "vue";
-import {TagSelect, TagSelectOption} from "view-ui-plus";
+import {Card, Scroll, TagSelect, TagSelectOption} from "view-ui-plus";
 const option = ref({
     title: {//标题
         text: "今日票房统计",
@@ -54,10 +62,25 @@ const option = ref({
         }
     ]
 });
+
+const list = ref( [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+function handleReachTop(){
+
+}
+
 </script>
 
 <style scoped>
-.chart {
+.summary{
     height: 400px;
+    width: 40%;
+    border: #3f414d 2px solid;
+}
+.scroll{
+    width: 60%;
+    height: 800px;
+}
+.pf{
+    display: flex;
 }
 </style>

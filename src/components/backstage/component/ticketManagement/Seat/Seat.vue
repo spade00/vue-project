@@ -13,7 +13,7 @@
     <div class="seat-Thumbnail">
         <Card class="card" style="width:320px" v-for="i in 10">
             <div style="text-align:center" @click="detail">
-                <img src="src/assets/movie/yingting.jpeg" width="280" alt="影厅">
+                <img src="../../../../../assets/movie/yingting.jpeg" width="280" alt="影厅">
                 <h3>激光{{i}}号厅</h3>
             </div>
         </Card>

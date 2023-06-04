@@ -18,8 +18,8 @@
 </template>
 <script>
 import {DatePicker, Space, TabPane, Tabs} from "view-ui-plus";
-import Upload from "@/components/backstage/component/Arrange_film/component/Upload.vue";
-import ManuallyEnter from "@/components/backstage/component/Arrange_film/component/ManuallyEnter.vue";
+import Upload from "@/components/backstage/component/ticketManagement/Arrange_film/component/Upload.vue";
+import ManuallyEnter from "@/components/backstage/component/ticketManagement/Arrange_film/component/ManuallyEnter.vue";
 
 export default {
     components: {DatePicker, Space, ManuallyEnter, Upload, TabPane, Tabs}

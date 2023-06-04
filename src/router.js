@@ -6,8 +6,8 @@ import Pay from "@/components/reception/router/pay/Pay.vue";
 import Pay_Details from "@/components/reception/router/pay_details/Pay_Details.vue"
 import My from "@/components/reception/router/my/My.vue";
 import Admin from "@/components/backstage/Admin.vue";
-import Arrange_film from "@/components/backstage/component/Arrange_film/Arrange_film.vue";
-import Seat_Details from "@/components/backstage/component/Seat/component/Seat_Details.vue";
+import Arrange_film from "@/components/backstage/component/ticketManagement/Arrange_film/Arrange_film.vue";
+import Seat_Details from "@/components/backstage/component/ticketManagement/Seat/component/Seat_Details.vue";
 const router = createRouter({
     history:createWebHashHistory(),
     routes:[

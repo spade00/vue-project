@@ -8,7 +8,7 @@
     <div class="Order-bg">
         <div class="Orders">
             <div class="Order-poster">
-                <img src="src/assets/movie/fb73869a3390fa281e395ba5f89fe7142e4ab.jpg" alt="海报">
+                <img src="../../../../../../assets/movie/fb73869a3390fa281e395ba5f89fe7142e4ab.jpg" alt="海报">
                 <div class="Order-movie-title">
                     <h1>{{store.movie_detail.name}}</h1>
                     <p>

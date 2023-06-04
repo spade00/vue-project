@@ -4,8 +4,12 @@
             <Radio label="light"></Radio>
             <Radio label="dark"></Radio>
         </RadioGroup>
-        <Menu :theme="theme" active-name="1" @on-select="handleSelect">
+        <Menu :theme="theme" active-name="0" @on-select="handleSelect">
             <MenuGroup title="统计">
+                <MenuItem name="0">
+                    <Icon type="md-chatbubbles"></Icon>
+                    总体
+                </MenuItem>
                 <MenuItem name="1">
                     <Icon type="md-chatbubbles"></Icon>
                     财务管理
@@ -50,30 +54,33 @@
             <MenuGroup title="员工管理">
                 <MenuItem name="10">
                     <Icon type="md-heart" />
-                    用户订单管理
+                    员工信息
                 </MenuItem>
             </MenuGroup>
         </Menu>
     </div>
     <div class="Admin-Content">
+        <Overall v-if="name === '0'"></Overall>
+        <ChartCom v-else-if="name === '2'"></ChartCom>
         <Arrange_film v-if="name === '4' "></Arrange_film>
         <Movie_library v-else-if="name === '5'"></Movie_library>
         <Ticket v-else-if="name==='6'"></Ticket>
         <Seat v-else-if="name === '7'"></Seat>
-        <ChartCom v-else-if="name === '1'"></ChartCom>
     </div>
 </template>
 <script>
 import {Icon, MenuGroup, MenuItem, Radio, RadioGroup,Menu} from "view-ui-plus";
 import {ref} from "vue";
-import Arrange_film from "@/components/backstage/component/Arrange_film/Arrange_film.vue";
-import Upload from "@/components/backstage/component/Arrange_film/component/Upload.vue";
-import Movie_library from "@/components/backstage/component/movieLibrary/Movie_library.vue";
-import Seat from "@/components/backstage/component/Seat/Seat.vue";
-import Ticket from "@/components/backstage/component/Ticket/Ticket.vue";
+import Arrange_film from "@/components/backstage/component/ticketManagement/Arrange_film/Arrange_film.vue";
+import Upload from "@/components/backstage/component/ticketManagement/Arrange_film/component/Upload.vue";
+import Movie_library from "@/components/backstage/component/ticketManagement/movieLibrary/Movie_library.vue";
+import Seat from "@/components/backstage/component/ticketManagement/Seat/Seat.vue";
+import Ticket from "@/components/backstage/component/ticketManagement/Ticket/Ticket.vue";
 import ChartCom from "@/components/backstage/component/Statistical/ChartCom.vue";
+import Overall from "@/components/backstage/component/Statistical/Overall/Overall.vue";
 export default {
     components: {
+        Overall,
         ChartCom,
         Ticket, Seat, Movie_library, Upload, Arrange_film, Menu, Icon, MenuItem, MenuGroup, Radio, RadioGroup},
     setup(){
