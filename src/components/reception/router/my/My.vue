@@ -11,8 +11,8 @@
         </div>
         <div class="my-content">
             <Tabs>
-                <TabPane label="订单" icon="logo-apple">标签一的内容</TabPane>
-                <TabPane label="影票" icon="logo-windows">标签二的内容</TabPane>
+                <TabPane label="订单" icon="logo-apple"><Order></Order></TabPane>
+                <TabPane label="简介" icon="logo-windows">标签二的内容</TabPane>
                 <TabPane label="安全" icon="logo-tux">标签三的内容</TabPane>
             </Tabs>
         </div>
@@ -22,9 +22,10 @@
 <script>
 
 import {Avatar, Space, TabPane, Tabs} from "view-ui-plus";
+import Order from "@/components/reception/router/my/component/Order.vue";
 
 export default {
-    components: {TabPane, Tabs, Avatar, Space},
+    components: {Order, TabPane, Tabs, Avatar, Space},
     setup() {
         return {
         };
@@ -34,7 +35,7 @@ export default {
 
 <style scoped>
 .my-bg{
-    width: 80%;
+    width: 60%;
     height: 900px;
 }
 .my-head{
