@@ -37,6 +37,7 @@ export default {
                    data: [230000, 240000, 180000, 250000, 270000, 280000, 250000],
                    itemStyle:{
                        barBorderRadius:5,
+                       color:"red"
                    }
                }
            ]

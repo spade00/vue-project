@@ -8,14 +8,25 @@
     </div>
     <br>
     <div class="pf">
-        <div class="summary">
-            <v-chart className="chart" :option="option" style="height: 400px;width: 100%"/>
+        <div style="width: 100%;height: 900px">
+            <div class="summary">
+                <v-chart className="chart" :option="option" style="height: 400px;width: 100%"/>
+            </div>
+            <div class="summary">
+                <v-chart className="chart" :option="option1" style="height: 400px;width: 100%"/>
+            </div>
         </div>
         <div class="scroll">
-            <Scroll :on-reach-top="handleReachTop" height="800">
-                <Card dis-hover v-for="(item, index) in list" :key="index" style="margin: 32px 0">
-                    <img src="https://dev-file.iviewui.com/stJXDnKhL5qEBD0dHSDDTKbdnptK6mV5/large">
-                    <h3>A high quality UI Toolkit based on Vue.js</h3>
+            <Scroll :on-reach-bottom="handleReachTop" height="800">
+                <Card class="scroll-card" dis-hover v-for="(item, index) in list" :key="index">
+                    <div class="scroll-content">
+                        <img alt="海报" src="src/assets/movie/fb73869a3390fa281e395ba5f89fe7142e4ab.jpg" height="150">
+                        <div class="scroll-content-text">
+                            <h3>电影{{item}}</h3>
+                            <h4>今日票房：100000</h4>
+                            <h4>总票房：1000000</h4>
+                        </div>
+                    </div>
                 </Card>
             </Scroll>
         </div>
@@ -23,8 +34,9 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 import {Card, Scroll, TagSelect, TagSelectOption} from "view-ui-plus";
+import request from "@/utils/request";
 const option = ref({
     title: {//标题
         text: "今日票房统计",
@@ -63,9 +75,26 @@ const option = ref({
     ]
 });
 
-const list = ref( [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-function handleReachTop(){
+const option1 = reactive({
+    xAxis: {
+        data: ['1月', '2月', '3月', '4月', '5月']
+    },
+    yAxis: {},
+    series: [
+        {
+            data: [25000, 14000, 23000, 35000, 10000],
+            type: 'line',
+            areaStyle: {
+                color: '#ff0',
+                opacity: 0.5
+            }
+        }
+    ]
+})
 
+const list = ref( [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,11,12,13,14,15,16,17])
+function handleReachTop(){
+    //发送请求获取更多数据
 }
 
 </script>
@@ -73,14 +102,25 @@ function handleReachTop(){
 <style scoped>
 .summary{
     height: 400px;
-    width: 40%;
+    width: 100%;
     border: #3f414d 2px solid;
 }
 .scroll{
+    margin: 0 0 0 20px;
     width: 60%;
     height: 800px;
 }
 .pf{
     display: flex;
+}
+.scroll-content{
+    display: flex;
+}
+.scroll-content-text{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 </style>

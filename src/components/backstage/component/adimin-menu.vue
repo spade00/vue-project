@@ -84,7 +84,7 @@ export default {
         ChartCom,
         Ticket, Seat, Movie_library, Upload, Arrange_film, Menu, Icon, MenuItem, MenuGroup, Radio, RadioGroup},
     setup(){
-        let name = ref("1")
+        let name = ref("0")
         const theme = ref("light")
         const handleSelect = (data)=>{
             name.value = data
