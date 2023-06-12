@@ -13,6 +13,7 @@
                 <v-chart className="chart" :option="option" style="height: 400px;width: 100%"/>
             </div>
             <div class="summary">
+                <h3>电影1总票房</h3>
                 <v-chart className="chart" :option="option1" style="height: 400px;width: 100%"/>
             </div>
         </div>

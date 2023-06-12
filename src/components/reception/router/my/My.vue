@@ -1,68 +1,56 @@
 <template>
     <div class="my-bg">
-        <div class="my-head">
-            <div class="my-info">
-                <div class="headPortrait"><h3>头像</h3></div>
-                <div>
-                    <div><h3 style="color: black">用户名</h3></div>
-                    <input placeholder="个性签名">
-                </div>
-            </div>
-        </div>
-        <div class="my-content">
-            <Tabs>
-                <TabPane label="订单" icon="logo-apple"><Order></Order></TabPane>
-                <TabPane label="简介" icon="logo-windows">标签二的内容</TabPane>
-                <TabPane label="安全" icon="logo-tux">标签三的内容</TabPane>
-            </Tabs>
+        <Menu :theme="theme" active-name="0" @on-select="handleSelect">
+            <RadioGroup v-model="theme">
+                <Radio label="light"></Radio>
+                <Radio label="dark"></Radio>
+            </RadioGroup>
+            <MenuItem name="0">
+                <Icon type="md-chatbubbles"></Icon>
+                我的订单
+            </MenuItem>
+            <MenuItem name="1">
+                <Icon type="md-chatbubbles"></Icon>
+                我的信息
+            </MenuItem>
+        </Menu>
+        <div class="Admin-Content">
+            <h1 v-if="name === '0'">我的订单</h1>
+            <h1 v-if="name === '1'">我的信息</h1>
+            <Order v-if="name === '0'"></Order>
+            <MyInfo v-if="name === '1'"></MyInfo>
         </div>
     </div>
 </template>
-
 <script>
-
-import {Avatar, Space, TabPane, Tabs} from "view-ui-plus";
+import {Icon, MenuGroup, MenuItem, Radio, RadioGroup,Menu} from "view-ui-plus";
+import {ref} from "vue";
 import Order from "@/components/reception/router/my/component/Order.vue";
-
+import MyInfo from "@/components/reception/router/my/component/MyInfo.vue";
 export default {
-    components: {Order, TabPane, Tabs, Avatar, Space},
-    setup() {
-        return {
-        };
-    }
-};
+    components: {
+        MyInfo,
+        Order, Menu, Icon, MenuItem, MenuGroup, Radio, RadioGroup},
+    setup(){
+        let name = ref("0")
+        const theme = ref("light")
+        const handleSelect = (data)=>{
+            name.value = data
+        }
+        return{
+            theme,
+            name,
+            handleSelect
+        }
+    },
+}
 </script>
-
 <style scoped>
 .my-bg{
-    width: 60%;
-    height: 900px;
-}
-.my-head{
-    height: 200px;
     display: flex;
-    flex-direction: column-reverse;
+    width: 70%;
 }
-.my-info{
-    margin: 20px;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+.Admin-Content{
+    width: 80%;
 }
-.headPortrait{
-    width: 150px;
-    height: 150px;
-    border-radius: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: coral;
-    margin: 10px;
- }
- .headPortrait h3{
-     color: white;
- }
 </style>

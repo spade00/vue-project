@@ -8,7 +8,11 @@
             </ul>
         </div>
         <div class="login">
-            <n-avatar round size="large" @click="login">登录</n-avatar>
+            <Space wrap>
+                <Poptip trigger="hover" title="LiMind" content="我的订单" @click="login">
+                    <n-avatar round size="large" @click="login">{{headPortrait}}</n-avatar>
+                </Poptip>
+            </Space>
         </div>
         <div class="search-box">
             <input type="text" placeholder="请输入关键词">
@@ -27,7 +31,7 @@
 </template>
 
 <script>
-import {reactive, onMounted, onUpdated} from 'vue';
+import {reactive, onMounted, onUpdated, ref} from 'vue';
 import router from "@/router";
 import Panel from "@/components/reception/main/panel/Panel.vue";
 import Classification from "@/components/reception/main/classification/Classification.vue";
@@ -35,9 +39,10 @@ import request from "@/utils/request";
 import Movie_store from "@/Store";
 import {useRoute} from "vue-router";
 import About from "@/components/reception/main/about_me/About.vue";
+import {Poptip, Space} from "view-ui-plus";
 //pinia
 export default {
-    components: {About, Classification, Panel},
+    components: {Poptip, Space, About, Classification, Panel},
     setup() {
 
         const store = Movie_store()
@@ -45,12 +50,15 @@ export default {
         const state = reactive({
             items: ['首页', '电影', '关于我们'],
         });
-
-
+        let headPortrait = ref("登录")
         const state1 = reactive({
             movies: [],
         });
         onMounted(  ()=>{
+            const Login_state = localStorage.getItem("Login_state")
+            if (Login_state !== null){
+                headPortrait.value =  "123"
+            }
              request.get('/Item/getData',{
             }).then(res=>{
                 state1.movies.push(...JSON.parse(res.data))
@@ -86,7 +94,8 @@ export default {
             setActive,
             login,
             movie:state1.movies,
-            store
+            store,
+            headPortrait
         };
     },
 };
