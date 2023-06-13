@@ -15,8 +15,8 @@
             </MenuItem>
         </Menu>
         <div class="Admin-Content">
-            <h1 v-if="name === '0'">我的订单</h1>
-            <h1 v-if="name === '1'">我的信息</h1>
+            <h1 v-if="name === '0'" style="margin-left: 20px;color: red">我的订单</h1>
+            <h1 v-if="name === '1'" style="margin-left: 20px;color: red">我的信息</h1>
             <Order v-if="name === '0'"></Order>
             <MyInfo v-if="name === '1'"></MyInfo>
         </div>

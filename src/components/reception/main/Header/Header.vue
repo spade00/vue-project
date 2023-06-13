@@ -1,5 +1,5 @@
 <template>
-    <div class="Navigation" v-if="$route.path==='/' || $route.path==='/my'">
+    <div class="Navigation" v-if="$route.path==='/' || $route.path==='/my'|| $route.path === '/order_detail'">
         <div class="menu">
             <ul>
                 <li v-for="(item, index) in items" :key="index" :class="{ active: isActive(index) }" @click="setActive(index)">

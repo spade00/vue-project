@@ -8,6 +8,7 @@ import My from "@/components/reception/router/my/My.vue";
 import Admin from "@/components/backstage/Admin.vue";
 import Arrange_film from "@/components/backstage/component/ticketManagement/Arrange_film/Arrange_film.vue";
 import Seat_Details from "@/components/backstage/component/ticketManagement/Seat/component/Seat_Details.vue";
+import Order_detail from "@/components/reception/router/my/order_detail/Order_detail.vue";
 const router = createRouter({
     history:createWebHashHistory(),
     routes:[
@@ -73,6 +74,10 @@ const router = createRouter({
         {
             path:"/seat",
             component:Seat_Details
+        },
+        {
+            path:"/order_detail",
+            component:Order_detail
         }
     ]
 });

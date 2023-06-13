@@ -26,8 +26,8 @@
         <Card style="width:100%">
             <template #title>
                 <Icon type="ios-film-outline"></Icon>
-                2023-06-02
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;订单号123456789</span>
+                {{item.data.payment_time}}
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;订单号{{item.data.payment_id}}</span>
             </template>
             <template #extra>
                 <a href="#" @click.prevent="remove_order(index)">
@@ -51,7 +51,7 @@
                     {{ item.data.state }}
                 </div>
                 <div>
-                    <Button>查看详情</Button>
+                    <Button @click="order_details(item.data.payment_id)">查看详情</Button>
                 </div>
             </div>
         </Card>
@@ -60,6 +60,7 @@
 <script>
 import {Button, Card, Icon, Rate} from "view-ui-plus";
 import {reactive} from "vue";
+import router from "@/router";
 
 export default {
     components: {Button, Rate, Icon, Card},
@@ -67,6 +68,8 @@ export default {
         const order_info = reactive([
             {
                 data:{
+                    payment_id:"123456789",
+                    payment_time:"2023-05-01 22:37:20",
                     title:"天空之城",
                     cinema:"鞍山影院",
                     screens:"5号激光厅",
@@ -79,6 +82,8 @@ export default {
             },
             {
                 data:{
+                    payment_id:"000056789",
+                    payment_time:"2023-05-01 22:37:20",
                     title:"天空之城",
                     cinema:"鞍山影院",
                     screens:"5号激光厅",
@@ -91,6 +96,8 @@ export default {
             },
             {
                 data:{
+                    payment_id:"1234560000",
+                    payment_time:"2023-05-01 22:37:20",
                     title:"天空之城",
                     cinema:"鞍山影院",
                     screens:"5号激光厅",
@@ -106,9 +113,18 @@ export default {
             alert("是否删除，此操作不可逆")
             order_info.splice(index,1)
         }
+        function order_details(payment_id){
+            router.push({
+                path:"/order_detail",
+                query:{
+                    payment_id:payment_id
+                }
+            })
+        }
         return{
             order_info,
-            remove_order
+            remove_order,
+            order_details
         }
     }
 }
