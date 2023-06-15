@@ -23,12 +23,13 @@
     </div>
 </template>
 <script>
-import {Icon, MenuGroup, MenuItem, Radio, RadioGroup,Menu} from "view-ui-plus";
+import {Icon, MenuGroup, MenuItem, Radio, RadioGroup, Menu, Page} from "view-ui-plus";
 import {ref} from "vue";
 import Order from "@/components/reception/router/my/component/Order.vue";
 import MyInfo from "@/components/reception/router/my/component/MyInfo.vue";
 export default {
     components: {
+        Page,
         MyInfo,
         Order, Menu, Icon, MenuItem, MenuGroup, Radio, RadioGroup},
     setup(){
@@ -49,6 +50,7 @@ export default {
 .my-bg{
     display: flex;
     width: 70%;
+    height: 100vh;
 }
 .Admin-Content{
     width: 80%;
