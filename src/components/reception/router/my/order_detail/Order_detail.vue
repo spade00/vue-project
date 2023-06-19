@@ -84,6 +84,7 @@ export default {
 <style scoped lang="scss">
 .order-detail-bg{
     width: 80%;
+    height: 100vh;
 }
 .order-detail-status{
     width: 100%;

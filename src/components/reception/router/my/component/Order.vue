@@ -20,44 +20,53 @@
 .Order{
     margin: 20px;
 }
+.Order_bg{
+
+}
+.order_paging{
+    display: flex;
+    justify-content: center
+}
 </style>
 <template>
-    <div class="Order" v-for="(item,index) in paginatedData">
-        <Card style="width:100%">
-            <template #title>
-                <Icon type="ios-film-outline"></Icon>
-                {{item.payment_time}}
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;订单号{{item.payment_id}}</span>
-            </template>
-            <template #extra>
-                <a href="#" @click.prevent="remove_order(index)">
-                    <Icon type="md-trash" />
-                </a>
-            </template>
-            <div class="order-content">
-                <div class="details">
-                    <img src="src/assets/movie/fb73869a3390fa281e395ba5f89fe7142e4ab.jpg" alt="海报" width="100">
-                    <div class="text">
-                        <h3>{{item.title}}</h3>
-                        <p>{{item.cinema}}</p>
-                        <p>{{ item.screens }}    {{item.row}}排{{item.col}}座</p>
-                        <h3 style="color: red">{{ item.date }}</h3>
+    <div class="Order_bg">
+        <div class="Order" v-for="(item,index) in paginatedData">
+            <Card style="width:100%">
+                <template #title>
+                    <Icon type="ios-film-outline"></Icon>
+                    {{item.payment_time}}
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;订单号{{item.payment_id}}</span>
+                </template>
+                <template #extra>
+                    <a href="#" @click.prevent="remove_order(index)">
+                        <Icon type="md-trash" />
+                    </a>
+                </template>
+                <div class="order-content">
+                    <div class="details">
+                        <img src="src/assets/movie/fb73869a3390fa281e395ba5f89fe7142e4ab.jpg" alt="海报" width="100">
+                        <div class="text">
+                            <h3>{{item.title}}</h3>
+                            <p>{{item.cinema}}</p>
+                            <p>{{ item.screens }}    {{item.row}}排{{item.col}}座</p>
+                            <h3 style="color: red">{{ item.date }}</h3>
+                        </div>
+                    </div>
+                    <h3 style="color: red">
+                        ￥{{item.prince}}
+                    </h3>
+                    <div>
+                        {{ item.state }}
+                    </div>
+                    <div>
+                        <Button @click="order_details(item.payment_id)">查看详情</Button>
                     </div>
                 </div>
-                <h3 style="color: red">
-                    ￥{{item.prince}}
-                </h3>
-                <div>
-                    {{ item.state }}
-                </div>
-                <div>
-                    <Button @click="order_details(item.payment_id)">查看详情</Button>
-                </div>
-            </div>
-        </Card>
-    </div>
-    <div>
-        <Page :model-value="order_info.currentPage" :page-size="3" :total="order_info.data.length"></Page>
+            </Card>
+        </div>
+        <div class="order_paging">
+            <n-pagination v-model:page="order_info.currentPage" :page-count="pageCount" size="large"/>
+        </div>
     </div>
 </template>
 <script>
