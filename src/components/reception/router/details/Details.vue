@@ -179,4 +179,7 @@ export default {
 .buy-tickets button{
     margin-right: 20px;
 }
+.movie-plot{
+    height: 50vh;
+}
 </style>
