@@ -3,8 +3,8 @@
       <div class="order-detail-status">
           <h1>订单完成</h1>
       </div>
-      <h3>订单编号:{{$route.query.payment_id}}</h3>
-      <Table :columns="table.columns" :data="table.data"></Table>
+      {{$route.query.payment_id}}
+      <Table :columns="columns" :data="data"></Table>
       <div class="order-detail-theFooter">
           <div>
               <h1>中影国际影城</h1>
@@ -25,82 +25,57 @@
 <script>
 import {useRoute} from "vue-router";
 import {Table} from "view-ui-plus";
-import {onMounted, reactive, ref} from "vue";
-import request from "@/utils/request";
 
 export default {
     name: "Order_detail",
     components: {Table},
     setup(){
         const route = useRoute()
-        const table = reactive({
-            columns:[
+        return {
+            columns: [
                 {
                     title: '影片',
-                    align:"center",
-                    key: 'Title'
+                    key: 'name'
                 },
                 {
                     title: '时间',
-                    align:"center",
-                    key: 'Data'
+                    key: 'age'
                 },
                 {
                     title: '影院',
-                    align:"center",
-                    key: 'address',
+                    key: 'address'
                 },
                 {
-                    title: '位置',
-                    align:"center",
-                    children:[
-                        {
-                            title:"影厅",
-                            align:"center",
-                            key:'Halls'
-                        },
-                        {
-                            title: "座位",
-                            align:"center",
-                            children:[
-                                {
-                                    title:"行",
-                                    align:"center",
-                                    key:'Col'
-                                },
-                                {
-                                    title:"列",
-                                    align:"center",
-                                    key: "Row"
-                                }
-                            ]
-                        }
-                    ]
+                    title: '座位',
+                    key: 'seat'
                 }
             ],
-            data:[
+            data: [
                 {
-                    Title: '《天空之城》',
-                    Data: '2016-10-03',
-                    Col:"1",
-                    Row:"1",
-                    Halls:"5号激光厅",
-                    OrderId:"123",
+                    name: '《天空之城》',
+                    age: '2016-10-03',
+                    address: '中影国际影城',
+                    seat: '5号激光厅  6排7座'
+                },
+                {
+                    name: '《天空之城》',
+                    age: '2016-10-03',
+                    address: '中影国际影城',
+                    seat: '5号激光厅  6排7座'
+                },
+                {
+                    name: '《天空之城》',
+                    age: '2016-10-03',
+                    address: '中影国际影城',
+                    seat: '5号激光厅  6排8座'
+                },
+                {
+                    name: '《天空之城》',
+                    age: '2016-10-03',
+                    address: '中影国际影城',
+                    seat: '5号激光厅  6排9座'
                 }
             ]
-        })
-        onMounted(()=>{
-            request.get("/Item/my/order",{
-                id:route.query.payment_id
-            }).then(res=>{
-                console.log(res.data)
-                table.data = JSON.parse(res.data)
-            }).catch(err=>{
-                console.log(err)
-            })
-        })
-        return {
-            table
         }
     }
 }

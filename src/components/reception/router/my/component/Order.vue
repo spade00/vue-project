@@ -63,7 +63,7 @@
                             出票成功
                         </div>
                         <div>
-                            <Button @click="order_details(item.PaymentId)">查看详情</Button>
+                            <Button @click="order_details(item.payment_id)">查看详情</Button>
                         </div>
                     </div>
                 </Card>
@@ -126,7 +126,7 @@ export default {
             request.get("/Item/my",{
                 id:localStorage.getItem("Login_state")
             }).then(res=>{
-                order_info.data = JSON.parse(res.data)
+                order_info.data.push(...JSON.parse(res.data))
                 console.log(order_info.data)
             }).catch(error=>{
                 console.log(error)
