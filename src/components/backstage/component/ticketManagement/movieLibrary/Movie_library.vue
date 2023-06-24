@@ -1,27 +1,25 @@
 <template>
-    请将电影文件放入下面的框中
-    <div class="upload">
-        <Upload
-                multiple
-                type="drag"
-                action="//jsonplaceholder.typicode.com/posts/">
-            <div style="padding: 20px 0">
-                <Icon type="ios-cloud-upload" size="150" style="color: #3399ff"></Icon>
-                <p>点击或者将文件拖拽至此</p>
-            </div>
-        </Upload>
+    <div class="movie-library-bg">
+        <Tabs type="card">
+            <TabPane label="标签一"><movie-table></movie-table></TabPane>
+            <TabPane label="标签二">标签二的内容</TabPane>
+            <TabPane label="标签三">标签三的内容</TabPane>
+        </Tabs>
     </div>
 </template>
 
 <script>
-import {Icon, Upload} from "view-ui-plus";
+import {Icon, TabPane, Tabs, Upload} from "view-ui-plus";
+import MovieTable from "@/components/backstage/component/ticketManagement/movieLibrary/component/movie-table.vue";
 
 export default {
     name: "Movie_library",
-    components: {Icon, Upload}
+    components: {MovieTable, TabPane, Tabs, Icon, Upload}
 }
 </script>
 
 <style scoped>
+.movie-library-bg{
 
+}
 </style>

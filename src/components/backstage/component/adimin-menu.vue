@@ -35,19 +35,23 @@
                 <Icon type="md-chatbubbles"></Icon>
                 座位信息
             </MenuItem>
+            <MenuItem name="8">
+                <Icon type="md-chatbubbles"></Icon>
+                影厅
+            </MenuItem>
         </MenuGroup>
         <MenuGroup title="用户管理">
-            <MenuItem name="8">
+            <MenuItem name="9">
                 <Icon type="md-heart" />
                 用户订单管理
             </MenuItem>
-            <MenuItem name="9">
+            <MenuItem name="10">
                 <Icon type="md-leaf" />
                 用户信息管理
             </MenuItem>
         </MenuGroup>
         <MenuGroup title="员工管理">
-            <MenuItem name="10">
+            <MenuItem name="11">
                 <Icon type="md-heart" />
                 员工信息
             </MenuItem>
