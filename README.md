@@ -1,4 +1,4 @@
-# vue-project
+# 影院售票系统
 
 ## 图片展示
 ![image](https://github.com/spade00/vue-project/assets/74340507/ec12b9ab-d0cc-48cb-b398-a5c45ad7ac0a)
